@@ -16,9 +16,9 @@ public interface ProdutoRepository extends JpaRepository< Produto, Long>{
 	public List <Produto> findById(@PathVariable("Id") long id);
 	public List <Produto> findAllByPrecoGreaterThan(@PathVariable("preco") BigDecimal preco);
 	public List <Produto> findAllByPrecoLessThan(@PathVariable("preco") BigDecimal preco);
-	//public List <Produto> findAllByDescricaoAndPrecoLessThanContainingIgnoreCase(String descricao, BigDecimal preco);
-	//public List <Produto> findAllByNomeOrDescricaoContainingIgnoreCase (String nome, String descricao);
-	
+	public List <Produto> findAllByDescricaoContainingIgnoreCaseAndPrecoLessThan(String descricao, BigDecimal preco);
+	public List <Produto> findAllByNomeContainingIgnoreCaseOrDescricaoContainingIgnoreCase (String nome, String descricao);
+	public List <Produto> findByPrecoBetween (BigDecimal preco1, BigDecimal preco2);
 	
 
 }

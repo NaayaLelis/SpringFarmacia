@@ -66,15 +66,15 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoRepository.findAllByPrecoLessThan(preco));
 	}
 	
-	/*@GetMapping ("nomeoudescricao/{nome, descricao}")
-	public ResponseEntity<List<Produto>> getByNomeOuDescricao(@PathVariable String nome ,String descricao){
-		return ResponseEntity.ok(produtoRepository.findAllByNomeOrDescricaoContainingIgnoreCase( nome, descricao));
-	*/
+	@GetMapping ("{nome}/{descricao}")
+	public ResponseEntity<List<Produto>> getByOr(@PathVariable String nome ,String descricao){
+		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCaseOrDescricaoContainingIgnoreCase(nome, descricao));}
 	
-	/*@GetMapping ("descricaoeprecomenor/{descricao,preco}")
-	public ResponseEntity<List<Produto>> getByDescricaoePrecoMenor(@PathVariable String descricao,BigDecimal preco){
-		return ResponseEntity.ok(produtoRepository.findAllByDescricaoAndPrecoLessThanContainingIgnoreCase(descricao, preco));
-	}*/
+	
+	@GetMapping ("/and/{descricao}/{preco}")
+	public ResponseEntity<List<Produto>> getByAnd(@PathVariable String descricao,BigDecimal preco){
+		return ResponseEntity.ok(produtoRepository.findAllByDescricaoContainingIgnoreCaseAndPrecoLessThan(descricao, preco));
+	}
 
 	@PostMapping
 	public ResponseEntity<Produto> postProduto(@Valid @RequestBody Produto produto){
@@ -84,6 +84,9 @@ public class ProdutoController {
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 	
+	@GetMapping ("{preco1}/{preco2}")
+	public ResponseEntity<List<Produto>> getByBetween(@PathVariable BigDecimal preco1, BigDecimal preco2 ){
+		return ResponseEntity.ok(produtoRepository.findByPrecoBetween(preco1, preco2));}
 	
 	@PutMapping
 	public ResponseEntity<Produto> putProduto(@Valid @RequestBody Produto produto){
