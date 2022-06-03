@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.generation.Controller&apos; to &apos;com.generation.controller&apos;&#x0D;&#x0A;- Original project: &apos;farmacia&apos;&#x0D;&#x0A;- Original element: &apos;farmacia/src/main/java/com.generation.Controller&apos;&#x0D;&#x0A;- Renamed element: &apos;farmacia/src/main/java/com.generation.controller&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.generation.Controller&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.generation.Controller" name="com.generation.controller" qualified="false" references="true" stamp="1654276924544" textual="false" version="1.0"/>
+</session>

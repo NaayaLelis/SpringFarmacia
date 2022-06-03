@@ -1,0 +1,45 @@
+package com.generation.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Table(name= "tb_categoria")
+@Entity
+public class Categoria {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private long Id;
+	
+	@NotNull
+	private String descricao;
+	
+	@ManyToOne(mappedBy= "categoria" cascade =CascadeType.Remove)
+	@JsonIgnoreProperties("categoria")
+	private List <Produto> produto;
+	
+	public long getId() {
+		return Id;
+	}
+	public void setId(long id) {
+		Id = id;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	
+
+}
